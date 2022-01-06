@@ -1,21 +1,22 @@
 #### IDEA 基础
-file Encoding UTF-8
-Annotation Processor  Enable
+-file Encoding UTF-8
+-Annotation Processor  Enable
 
 #### 软件架构
-- SpringCloud：Hoxton.SR1
+- SpringCloud：Hoxton.SR3
 - SpringBoot：2.2.2RELEASE
-- SpringCloud Alibaba：2.1.0.RELEASE
+- SpringCloud Alibaba：2.2.1.RELEASE
 - JAVA：8
 - Maven：3.5及以上
 - MySQL：5.7及以上
 - sleuth+zipkin: 服务链路追踪
 - Swagger 接口文档抽取
-- nacos :服务注册与发现， 配置中心 ，消息总线bus
+- nacos 1.2.1 :服务注册与发现， 配置中心 ，消息总线bus
 - sentinel：服务降级与熔断
 - openFeign: 服务调用
 - Ribbon：负载均衡
 - gateWay: 服务网关
+- 版本选择参照：https://blog.csdn.net/qq_38637558/article/details/114448690
 
 #### 各个模块的作用
 Changan-Mall-Common 通用模块。存放通用实体。client 。

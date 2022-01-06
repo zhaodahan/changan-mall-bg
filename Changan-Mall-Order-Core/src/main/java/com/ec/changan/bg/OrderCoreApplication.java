@@ -5,7 +5,8 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
-//@EnableDiscoveryClient //Discovery服务发现
+//Discovery服务发现
+@EnableDiscoveryClient
 public class OrderCoreApplication {
     public static void main(String[] args) {
         SpringApplication.run(OrderCoreApplication.class, args);

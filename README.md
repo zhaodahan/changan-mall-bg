@@ -11,7 +11,7 @@
 - MySQL：5.7及以上
 - sleuth+zipkin: 服务链路追踪
 - Swagger 接口文档抽取
-- nacos 1.2.1 :服务注册与发现， 配置中心 ，消息总线bus
+- nacos 1.2.1 :服务注册与发现， 配置中心 ，消息总线bus. nacos 默认自带负载均衡，天生集成了ribbon
 - sentinel：服务降级与熔断
 - openFeign: 服务调用
 - Ribbon：负载均衡
@@ -19,16 +19,22 @@
 - 版本选择参照：https://blog.csdn.net/qq_38637558/article/details/114448690
 
 #### 各个模块的作用
-Changan-Mall-Common 通用模块。存放通用实体。client 。
-Changan-Mall-Order-Core 订单原子模块
-Changan-Mall-Order-Edge 订单聚合服务模块
+- Changan-Mall-Common 通用模块。存放通用实体。client 。
+- Changan-Mall-Order-Core 订单原子模块
+- Changan-Mall-Order-Edge 订单聚合服务模块
+
+#### 服务端口约定
+- 网关服务，消费侧 端口700X
+- 聚合服务，消费侧 端口800X
+- 原子服务，消费侧 端口900X
+
 
 #### P8~P10：支付模块构建与测试-cloud-provider-payment8001
-1. 建Module
-2. 改pom.xml
-3. 写配置文件YML
-4. 主启动类
-5. 业务类
+- 1. 建Module
+- 2. 改pom.xml
+- 3. 写配置文件YML
+- 4. 主启动类
+- 5. 业务类
     - Controller -> Service -> ServiceImpl -> Dao (Mapper) -> Entity
 #### P9~P14：消费订单模块与项目重构
  **重点：** 重复性Entity集中提取到cloud-api-commons中，其他子模块可以pom.xml中引入cloud-api-commons，即可获得Entity类

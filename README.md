@@ -4,7 +4,7 @@
 
 #### 软件架构
 - SpringCloud：Hoxton.SR3
-- SpringBoot：2.2.2RELEASE
+- SpringBoot：2.2.5.RELEASE
 - SpringCloud Alibaba：2.2.1.RELEASE
 - JAVA：8
 - Maven：3.5及以上

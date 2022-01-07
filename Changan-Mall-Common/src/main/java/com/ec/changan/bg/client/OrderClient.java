@@ -2,6 +2,7 @@ package com.ec.changan.bg.client;
 
 import com.ec.changan.bg.entities.CommonResult;
 import com.ec.changan.bg.entities.Payment;
+import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;

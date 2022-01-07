@@ -1,5 +1,8 @@
 package com.ec.changan.bg.controller;
 
+import com.ec.changan.bg.client.OrderClient;
+import com.ec.changan.bg.entities.CommonResult;
+import com.ec.changan.bg.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -19,7 +22,14 @@ public class PaymentController {
 	@Resource
 	private DiscoveryClient discoveryClient;
 
+	@Resource
+	private OrderClient orderClient;
 
+	@GetMapping(value = "/payment/get/{id}")
+	public CommonResult<Payment> getPaymentById(@PathVariable("id") Long id) {
+		log.info("Fegin 调用原子服务");
+		return orderClient.getPaymentById(id);
+	}
 
 	@GetMapping(value = "/payment/lb")
 	public String getPaymentLB() {

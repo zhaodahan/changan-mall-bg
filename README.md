@@ -73,3 +73,34 @@ probability: 1
 ```
 
 打开浏览器访问:http:localhost:9411
+
+#### nacos 作为配合中心
+- 导入配置
+  DEFAULT_GROUP 默认将配置文件打进DEFAULT_GROUP.zip
+- 从配置中心读取配置文件的规则
+${spring.application.name}-${spring-profile.active}.${spring.cloud.nacos.config.file-extension}
+
+### 生产使用nacos 作为配置中心
+官网说明：
+https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html
+预计需要，1个nginx+3个nacos注册中心+1个mysq
+![img.png](img.png)
+
+博客示例：https://cloud.tencent.com/developer/article/1805561
+
+- 配置文件的持久化 (for 生产 Linux)
+生产上的配置文件信息需要持久化，目前选择持久化到mysql中
+原因：
+默认nacos 使用的是嵌入式数据库存储 derby
+所以如果使用nacos 集群，数据存储一致性会存在问题
+为了解决这个问题，nacos 采用集中式存储方式来支持集群化部署。目前只支持mysql
+- ![img_1.png](img_1.png) 
+
+
+- nacos 的集群配置 (for 生产 Linux)
+需要先做持久化配置。 这里主要是通过Nginx代理转发，让我们能通过一个地址访问到nacos上。
+
+配置集群配置文件：nacos的解压目录nacos/的conf目录下，有配置文件cluster.conf
+集群模式启动
+
+

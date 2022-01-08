@@ -1,31 +1,9 @@
-server:
-  port: 8001
-
+#指定使用的环境的配置文件，用以切换环境
 spring:
-  application:
-    name: Changan-Mall-Order-Edge
-  #配置Nacos地址
-  cloud:
-    nacos:
-      discovery:
-        server-addr: localhost:8848
-
-#  配置zipkin 监控
-#  zipkin:
-#    base-url: http://localhost:9411
-#  sleuth:
-#    sampler:
-#      #采样值介于0到1之间，1则代表全部采样
-#      probability: 1
+  profiles:
+    active: dev
 
 
-
-#  暴露服务监控
-management:
-  endpoints:
-    web:
-      exposure:
-        include: "*"
 
 
 

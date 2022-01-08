@@ -1,0 +1,25 @@
+#  配置zipkin 监控
+#  zipkin:
+#    base-url: http://localhost:9411
+#  sleuth:
+#    sampler:
+#      #采样值介于0到1之间，1则代表全部采样
+#      probability: 1
+
+
+
+#  暴露服务监控
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+
+#开启Feign的日志客户端
+logging:
+  level:
+  #Feign日志以什么级别监听哪个接口
+    com.ec.changan.bg.client.OrderClient: debug
+
+

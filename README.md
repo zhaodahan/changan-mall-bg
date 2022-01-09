@@ -22,6 +22,14 @@
 - Changan-Mall-Common 通用模块。存放通用实体。client 。
 - Changan-Mall-Order-Core 订单原子模块
 - Changan-Mall-Order-Edge 订单聚合服务模块
+- Changan-Mall-Goods-Core 商品原子模块
+- Changan-Mall-Goods-Edge 商品聚合服务模块
+- Changan-Mall-Shop-Core 商家原子模块
+- Changan-Mall-Advertisement-Core 广告位原子模块
+- Changan-Mall-Shop-Edge 商家聚合服务模块
+- Changan-Mall-System-Core 系统原子模块
+- Changan-Mall-System-Edge 系统聚合服务模块
+- Changan-Mall-GateWay 网关模块
 
 #### 服务端口约定
 - 网关服务，消费侧 端口700X
@@ -120,5 +128,10 @@ https://blog.csdn.net/LSY_CSDN_/article/details/105114573
 https://www.imooc.com/article/289464 (重点参考)
 
 https://blog.csdn.net/Hcy_code/article/details/121186654
-网上已经有人改造好了个加强版。 直接拿来用
+网上已经有人改造好了个加强版。 直接拿来改改用
 https://github.com/CHENZHENNAME/sentinel-dashboard-nacos
+
+### 坑 ：sentinel-datasource-nacos 中jackson-dataformat-xml依赖 会导致springcloud 返回的数据为XML 而不是JSON
+如何解决？
+https://blog.csdn.net/bilibili_CSDN/article/details/107104439
+肯定是 去除依赖更有效

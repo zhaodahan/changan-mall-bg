@@ -1,0 +1,10 @@
+#指定使用的环境的配置文件，用以切换环境
+spring:
+  profiles:
+    active: dev
+
+
+
+
+
+

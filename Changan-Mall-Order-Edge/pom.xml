@@ -72,13 +72,15 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <!--去除jackson-dataformat-xml，否则会返回xml文件，而不是JSON-->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-xml</artifactId>
+                </exclusion>
+            </exclusions>
         </dependency>
-        <!--https://blog.csdn.net/s1441101265/article/details/107688324-->
-       <!-- <dependency>
-            <groupId>com.alibaba.csp</groupId>
-            <artifactId>sentinel-transport-netty-http</artifactId>
-            <version>1.7.1</version>
-        </dependency>-->
+
 
     </dependencies>
 

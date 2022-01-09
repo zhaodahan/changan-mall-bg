@@ -8,49 +8,35 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>Changan-Mall-Order-Core</artifactId>
 
+    <artifactId>Changan-Mall-GateWay</artifactId>
 
     <dependencies>
 
-        <!--引入自己定义的api调用包，Entity-->
+
+        <!--引入自己定义的api调用包，可以使用Payment支付Entity-->
         <dependency>
             <groupId>com.ec</groupId>
             <artifactId>Changan-Mall-Common</artifactId>
             <version>${project.version}</version>
         </dependency>
 
-        <!--数据库连接-->
-       <dependency>
-            <groupId>com.alibaba</groupId>
-            <artifactId>druid-spring-boot-starter</artifactId>
-            <version>1.1.10</version>
-        </dependency>
+        <!-- gateway  : 注意gateWay 是不需要 spring-boot-starter-web spring-boot-starter-actuator 依赖-->
         <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-gateway</artifactId>
         </dependency>
-
-        <dependency>
-            <groupId>org.springframework.boot</groupId>
-            <artifactId>spring-boot-starter-jdbc</artifactId>
-        </dependency>
-
 
         <!--springboot 通用依赖-->
-        <dependency>
+        <!--<dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-web</artifactId>
         </dependency>
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-actuator</artifactId>
-        </dependency>
+        </dependency>-->
 
-        <dependency>
-            <groupId>org.mybatis.spring.boot</groupId>
-            <artifactId>mybatis-spring-boot-starter</artifactId>
-        </dependency>
 
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -63,10 +49,10 @@
         <!--下面是微服务cloud的通用依赖-->
 
         <!-- 包含了sleuth+zipkin -->
-<!--        <dependency>
-            <groupId>org.springframework.cloud</groupId>
-            <artifactId>spring-cloud-starter-zipkin</artifactId>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>org.springframework.cloud</groupId>
+             <artifactId>spring-cloud-starter-zipkin</artifactId>
+         </dependency>-->
 
         <!-- springcloud alibaba nacos -->
         <dependency>
@@ -88,14 +74,10 @@
         <dependency>
             <groupId>com.alibaba.cloud</groupId>
             <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
-            <!--去除jackson-dataformat-xml，否则会返回xml文件，而不是JSON-->
-            <exclusions>
-                <exclusion>
-                    <groupId>com.fasterxml.jackson.dataformat</groupId>
-                    <artifactId>jackson-dataformat-xml</artifactId>
-                </exclusion>
-            </exclusions>
         </dependency>
+
+
+
     </dependencies>
 
 </project>

@@ -7,6 +7,7 @@ import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 
 //
+//@SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 @SpringBootApplication(exclude= {DataSourceAutoConfiguration.class})
 //Discovery服务发现
 @EnableDiscoveryClient

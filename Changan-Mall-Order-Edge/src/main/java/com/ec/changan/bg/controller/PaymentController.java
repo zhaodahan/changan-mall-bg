@@ -1,6 +1,8 @@
 package com.ec.changan.bg.controller;
 
+import com.alibaba.csp.sentinel.annotation.SentinelResource;
 import com.ec.changan.bg.client.OrderClient;
+import com.ec.changan.bg.controller.myhandler.CustomerBlockHandler;
 import com.ec.changan.bg.entities.CommonResult;
 import com.ec.changan.bg.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
@@ -55,6 +57,15 @@ public class PaymentController {
 	@GetMapping(value = "/payment/zipkin")
 	public String paymentZipkin() {
 		return "链路跟踪zipkin访问成功";
+	}
+
+
+	@GetMapping("/rateLimit/customerBlockHandler")
+	@SentinelResource(value = "customerBlockHandler",
+			blockHandlerClass = CustomerBlockHandler.class,
+			blockHandler = "handlerException2")
+	public CommonResult customerBlockHandler() {
+		return new CommonResult(200,"客户自定义",new Payment(2020L,"serial003"));
 	}
 
 }

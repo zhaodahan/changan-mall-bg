@@ -103,4 +103,22 @@ https://nacos.io/zh-cn/docs/cluster-mode-quick-start.html
 配置集群配置文件：nacos的解压目录nacos/的conf目录下，有配置文件cluster.conf
 集群模式启动
 
+#### sentinel
 
+sentinel-dashboard-1.7.1.jar 提供一个web界面来细粒度话的配置限流规则 http://localhost:8080/#/dashboard/home
+@SentinelResource： 注解那些资源需要被限流控制
+
+### sentinel 持久化
+配置的限流规则入库
+将限流配置规则持久化进Nacos保存，只要刷新8401某个rest地址，
+sentinel控制台的流控规则就能看到，只要Nacos里面的配置不删除，针对8401上Sentinel上的流控规则持续有效
+
+目前的持久化需要在nacos 中手动 建立并配置流控规则。 比较麻烦
+思考： 有没有一种方式，我们在sentinel中一配置，就自动更新到nacos中去
+
+https://blog.csdn.net/LSY_CSDN_/article/details/105114573
+https://www.imooc.com/article/289464 (重点参考)
+
+https://blog.csdn.net/Hcy_code/article/details/121186654
+网上已经有人改造好了个加强版。 直接拿来用
+https://github.com/CHENZHENNAME/sentinel-dashboard-nacos

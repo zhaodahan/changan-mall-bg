@@ -1,6 +1,6 @@
 package com.ec.changan.bg.service;
 
-import com.ec.changan.bg.entities.Payment;
+import com.ec.changan.bg.entities.po.Payment;
 import org.apache.ibatis.annotations.Param;
 
 public interface PaymentService {

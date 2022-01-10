@@ -1,10 +1,12 @@
 package com.ec.changan.bg.controller;
 
+import cn.hutool.core.bean.BeanUtil;
+import com.ec.changan.bg.entities.CommonResult;
+import com.ec.changan.bg.entities.dto.PaymentDTO;
+import com.ec.changan.bg.entities.po.Payment;
 import com.ec.changan.bg.service.PaymentService;
 
 
-import com.ec.changan.bg.entities.CommonResult;
-import com.ec.changan.bg.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -29,7 +31,9 @@ public class PaymentController {
 	private DiscoveryClient discoveryClient;
 
 	@PostMapping(value = "/payment/create")
-	public CommonResult create(@RequestBody Payment payment) {
+	public CommonResult create(@RequestBody PaymentDTO paymentDto) {
+		Payment payment =new Payment();
+		BeanUtil.copyProperties(paymentDto,payment);
 		int result = paymentService.create(payment);
 		log.info("插入结果："+result);
 

@@ -10,6 +10,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <artifactId>Changan-Mall-Common</artifactId>
+    <packaging>jar</packaging>
 
     <!--引入通用依赖jar-->
     <dependencies>

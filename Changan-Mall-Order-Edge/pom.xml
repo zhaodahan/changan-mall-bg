@@ -13,11 +13,17 @@
 
     <dependencies>
 
+        <!--引入自己定义的通用comom -->
+        <dependency>
+            <groupId>com.ec</groupId>
+            <artifactId>Changan-Mall-Common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 
         <!--引入自己定义的api调用包，可以使用Payment支付Entity-->
         <dependency>
             <groupId>com.ec</groupId>
-            <artifactId>Changan-Mall-Common</artifactId>
+            <artifactId>Changan-Mall-Order-API</artifactId>
             <version>${project.version}</version>
         </dependency>
 

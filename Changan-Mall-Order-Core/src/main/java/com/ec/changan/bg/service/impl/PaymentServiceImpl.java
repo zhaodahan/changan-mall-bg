@@ -2,8 +2,8 @@ package com.ec.changan.bg.service.impl;
 
 
 import com.ec.changan.bg.dao.PaymentDao;
+import com.ec.changan.bg.entities.po.Payment;
 import com.ec.changan.bg.service.PaymentService;
-import com.ec.changan.bg.entities.Payment;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Service;
 

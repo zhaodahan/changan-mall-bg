@@ -19,15 +19,20 @@
 - 版本选择参照：https://blog.csdn.net/qq_38637558/article/details/114448690
 
 #### 各个模块的作用
-- Changan-Mall-Common 通用模块。存放通用实体。client 。
+- Changan-Mall-Common 通用模块， 通用工具类，通用组件。
 - Changan-Mall-Order-Core 订单原子模块
+- Changan-Mall-Order-API  订单API  存放 Feginclient。
 - Changan-Mall-Order-Edge 订单聚合服务模块
 - Changan-Mall-Goods-Core 商品原子模块
+- Changan-Mall-Goods-API  商品API  
 - Changan-Mall-Goods-Edge 商品聚合服务模块
 - Changan-Mall-Shop-Core 商家原子模块
+- Changan-Mall-Shop-API  商家API  
 - Changan-Mall-Advertisement-Core 广告位原子模块
+- Changan-Mall-Advertisement-API  商家API  
 - Changan-Mall-Shop-Edge 商家聚合服务模块
 - Changan-Mall-System-Core 系统原子模块
+- Changan-Mall-System-API  系统API 
 - Changan-Mall-System-Edge 系统聚合服务模块
 - Changan-Mall-GateWay 网关模块
 
@@ -37,23 +42,50 @@
 - 原子服务，消费侧 端口900X
 
 
-#### P8~P10：支付模块构建与测试-cloud-provider-payment8001
+#### 模块实体约定
+
+Changan-Mall-Order-Core (原子服务)
+   -com.ec.changan.bg.entities.po  下存放原子服务自己对应数据库实体
+
+Changan-Mall-Common (通用common)
+  -com.ec.changan.bg.entities  下存放所有服务都会使用到的实体
+  -com.ec.changan.bg.entities.dto 存放服务之间调用需要使用到的扩展实体
+
+
+
+#### 模块构建与测试
+
+core
 - 1. 建Module
 - 2. 改pom.xml
 - 3. 写配置文件YML
 - 4. 主启动类
 - 5. 业务类
     - Controller -> Service -> ServiceImpl -> Dao (Mapper) -> Entity
-#### P9~P14：消费订单模块与项目重构
- **重点：** 重复性Entity集中提取到cloud-api-commons中，其他子模块可以pom.xml中引入cloud-api-commons，即可获得Entity类
+
+ **重点：** 
 ```
 <!--引入自己定义的api调用包，可以使用Payment支付Entity-->
-<dependency>
-    <groupId>com.springcloud</groupId>
-    <artifactId>cloud-api-commons</artifactId>
-    <version>${project.version}</version>
-</dependency>
+ <!--引入自己定义的api调用包，Entity-->
+        <dependency>
+            <groupId>com.ec</groupId>
+            <artifactId>Changan-Mall-Common</artifactId>
+            <version>${project.version}</version>
+        </dependency>
 ```
+
+聚合服务调用 原子服务 引入对应API jar
+
+```
+<!--引入自己定义的api调用包，可以使用Payment支付Entity-->
+ <!--引入自己定义的api调用包，Entity-->
+         <dependency>
+            <groupId>com.ec</groupId>
+            <artifactId>Changan-Mall-Order-API</artifactId>
+            <version>${project.version}</version>
+        </dependency>
+```
+
 
 #### sleuth+zipkin: 服务链路追踪
 运行 ：java -jar zipkin-server-2.12.9-exec.jar
@@ -131,7 +163,7 @@ https://blog.csdn.net/Hcy_code/article/details/121186654
 网上已经有人改造好了个加强版。 直接拿来改改用
 https://github.com/CHENZHENNAME/sentinel-dashboard-nacos
 
-### 坑 ：sentinel-datasource-nacos 中jackson-dataformat-xml依赖 会导致springcloud 返回的数据为XML 而不是JSON
+### 遇见问题 ：sentinel-datasource-nacos 中jackson-dataformat-xml依赖 会导致springcloud 返回的数据为XML 而不是JSON
 如何解决？
 https://blog.csdn.net/bilibili_CSDN/article/details/107104439
 肯定是 去除依赖更有效

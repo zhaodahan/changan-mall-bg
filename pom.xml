@@ -15,6 +15,7 @@
         <module>Changan-Mall-Order-Edge</module>
         <module>Changan-Mall-Common</module>
         <module>Changan-Mall-GateWay</module>
+        <module>Changan-Mall-Order-API</module>
     </modules>
 
 

@@ -19,7 +19,7 @@ spring:
 
 mybatis:
   mapperlocations: classpath:mapper/*.xml
-  type-aliases-package: com.ec.changan.bg.entities #所有Entity别名类所在包
+  type-aliases-package: com.ec.changan.bg.entities.po #所有Entity别名类所在包
 
 #  暴露服务监控
 management:

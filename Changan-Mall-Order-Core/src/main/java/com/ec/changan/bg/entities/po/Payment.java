@@ -1,4 +1,4 @@
-package com.ec.changan.bg.entities;
+package com.ec.changan.bg.entities.po;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

@@ -5,8 +5,6 @@ import com.ec.changan.bg.entities.CommonResult;
 import com.ec.changan.bg.entities.dto.PaymentDTO;
 import com.ec.changan.bg.entities.po.Payment;
 import com.ec.changan.bg.service.PaymentService;
-
-
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;

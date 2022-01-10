@@ -10,7 +10,7 @@
 - Maven：3.5及以上
 - MySQL：5.7及以上
 - sleuth+zipkin: 服务链路追踪
-- Swagger 接口文档抽取
+- Swagger3 接口文档抽取
 - nacos 1.2.1 :服务注册与发现， 配置中心 ，消息总线bus. nacos 默认自带负载均衡，天生集成了ribbon
 - sentinel：服务降级与熔断
 - openFeign: 服务调用
@@ -47,9 +47,12 @@
 Changan-Mall-Order-Core (原子服务)
    -com.ec.changan.bg.entities.po  下存放原子服务自己对应数据库实体
 
+Changan-Mall-Order-API
+   -com.ec.changan.bg.entities.dto 存放服务之间调用需要使用到的扩展实体
+
 Changan-Mall-Common (通用common)
   -com.ec.changan.bg.entities  下存放所有服务都会使用到的实体
-  -com.ec.changan.bg.entities.dto 存放服务之间调用需要使用到的扩展实体
+  
 
 
 
@@ -167,3 +170,19 @@ https://github.com/CHENZHENNAME/sentinel-dashboard-nacos
 如何解决？
 https://blog.csdn.net/bilibili_CSDN/article/details/107104439
 肯定是 去除依赖更有效
+```
+<dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-sentinel</artifactId>
+            <!--去除jackson-dataformat-xml，否则会返回xml文件，而不是JSON-->
+            <exclusions>
+                <exclusion>
+                    <groupId>com.fasterxml.jackson.dataformat</groupId>
+                    <artifactId>jackson-dataformat-xml</artifactId>
+                </exclusion>
+            </exclusions>
+        </dependency>
+```
+
+### swagger 3
+https://blog.csdn.net/D102601560/article/details/110739667
